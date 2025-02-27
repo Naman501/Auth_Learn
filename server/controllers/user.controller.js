@@ -32,11 +32,12 @@ exports.signUp = async (req, res) => {
         })
 
         await user.save();
+   return res.status(201).send("User created successfully.");
+
 
     } catch (error) {
         console.log(error);
     }
-   return res.status(201).send("User created successfully");
 
       }
 
