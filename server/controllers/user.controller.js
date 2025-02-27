@@ -1,9 +1,16 @@
 const User = require("../models/User");
+const bcrypt= require("bcrypt"); 
 
 exports.signUp = async (req, res) => {
 
     try {
         const { name, email, password } = req.body;
+
+
+        // Hashing The Password
+
+const hashedPassword = await  bcrypt.hash(password, 12);
+
 
         // CHECKING IF THE USER ALREADY EXISTS
 
@@ -28,7 +35,7 @@ exports.signUp = async (req, res) => {
         const user = new User({
             name,
             email,
-            password,
+            password : hashedPassword,
         })
 
         await user.save();
@@ -38,6 +45,9 @@ exports.signUp = async (req, res) => {
     } catch (error) {
         console.log(error);
     }
+
+
+
 
       }
 
