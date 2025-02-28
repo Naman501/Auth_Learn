@@ -2,6 +2,7 @@ const express =require("express")
 const app=express()
 const port=5000;
 const mongoose=require("mongoose")
+const cookieParser=require("cookie-parser")
 const router=require("./routes/user.routes")
 require("dotenv").config()
 
@@ -16,6 +17,9 @@ app.get("/",(req,res)=>{
  
 app.use(express.json())
 app.use("/api",router)
+app.use(cookieParser())
+
+
 
 // connection to db
 

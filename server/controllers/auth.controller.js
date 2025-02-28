@@ -105,6 +105,17 @@ exports.logIn = async (req, res) => {
     );
     
 
+
+// Creating A Cookie
+
+    res.cookie(String(existingUser.id), token, {
+        path:"/",
+        expires: new Date(Date.now() + 30*1000),
+        httpOnly: true,
+        sameSite:"lax"
+    });
+
+
     // Password is correct
     return res.status(200).json(
         {
