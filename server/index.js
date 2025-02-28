@@ -28,7 +28,7 @@ async function connectToMongoDB(url){
     })
 };
 
-connectToMongoDB("mongodb+srv://naman:test_cluster@cluster0.nf8sx.mongodb.net/")
+connectToMongoDB(process.env.MONGODB_URI)
 
 // lstening to port
 app.listen(port,()=>{
