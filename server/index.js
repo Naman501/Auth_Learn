@@ -3,6 +3,7 @@ const app=express()
 const port=5000;
 const mongoose=require("mongoose")
 const router=require("./routes/user.routes")
+require("dotenv").config()
 
 
 app.get("/",(req,res)=>{
