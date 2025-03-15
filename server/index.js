@@ -5,6 +5,8 @@ const mongoose=require("mongoose")
 const cookieParser=require("cookie-parser")
 const router=require("./routes/user.routes")
 require("dotenv").config()
+const cors = require("cors");
+app.use(cors());
 
 
 app.get("/",(req,res)=>{
